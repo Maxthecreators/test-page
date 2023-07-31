@@ -29,11 +29,6 @@ function setSlideCount() {
     return slideCount;
 }
 
-// function showSlides(index) {
-//     // скрываем все слайды
-//     slides.forEach((slide) => {
-//         slide.style.display = 'none';
-//     });
 function showSlides(index) {
     const slideCount = setSlideCount();
     let endIndex = index + slideCount;
@@ -46,17 +41,11 @@ function showSlides(index) {
         slide.classList.remove('active');
         slide.style.display = 'none';
     });
-    // показываем текущие 4 слайда
-    // for (let i = index; i < index + 4; i++) {
-    //     if (slides[i]) {
-    //         slides[i].style.display = 'block';
-    //     }
-    // }
+    // показываем текущие слайд
     for (let i = index; i < endIndex; i++) {
         slides[i].style.display = 'block';
     }
-    // устанавливаем индекс текущего слайда
-    // currentSlide = index;
+    // устанавливаем индекс слайда
     slides[index].classList.add('active');
     currentSlide = index;
 }
@@ -68,12 +57,6 @@ function slideLeft() {
     }
 }
 
-// function slideRight() {
-//     if (currentSlide < slides.length - 4) {
-//         currentSlide++;
-//         showSlides(currentSlide);
-//     }
-// }
 function slideRight() {
     const slideCount = setSlideCount();
     if (currentSlide + slideCount < slides.length) {
@@ -145,7 +128,7 @@ window.addEventListener('keydown', event => {
     }
 });
 
-// Скрипт для рейтинга звезд
+//Рейтинг звезд
 const ratings = document.querySelectorAll('.rating');
     if (ratings.length > 0) {
         initRatings();
