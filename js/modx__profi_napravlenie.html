@@ -1,0 +1,204 @@
+[[$head]]
+[[$header]]
+<!--Page Title-->
+<section class="page-title">
+    <div class="auto-container">
+        <h1>Каталог программ [[!getResourceField? &id=`[[!city]]` &field=`sklon` &processTV=`1`]]</h1>
+    </div>
+    <!--Page Info-->
+    <div class="page-info">
+        <div class="auto-container clearfix">
+            <div class="pull-left">
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/">Главная</a></li>
+                    <li>Каталог программ</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--End Page Info-->
+</section>
+<!--End Page Title-->
+<!--  Start Content -->
+<section class="page-container dark-grey-bg">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="content-side col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!--  <h3>Направления</h3> -->
+                <div class="three-item-carousel owl-carousel owl-theme cat-car">
+                    [[!catalog-carousel-items]]
+                </div>
+
+                <div class="btnbox">
+                    <!-- <a href="#" class="js-open-modal lgreen-btn shadow-btn" data-modal="application-form-modal">Оставить заявку</a> -->
+                    <a href="[[!getResourceField? &id=`[[!city]]` &field=`pricegrafik` &processTV=`1`]]" class="popup green-btn shadow-btn">Скачать прайс</a>
+                    <a href="vse-proektyi.html" class="white-btn shadow-btn">Показать все направления</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--  End Content -->
+
+<!--  Start Search and Filter -->
+<section class="page-container grey-bg" id="filters">
+    <div class="auto-container" style="position: realtive;">
+        <div id="fitlerAnchor" style="position: absolute; top: -32px;"></div>
+        <!--tplFilter.row.default=`tpl.mFilter2.filter.checkbox` &sort=`resource|pagetitle:asc`-->
+        <!-- Сортировка по unqiueid в обратном направлении изз-за алгоритма группировки в custom.js -->
+        [[mFilter2?
+        &parents=`2368`
+        &depth=`4`
+        &hideContainers=`true`
+        &limit=`40`
+        &class=`modResource`
+        &sortby=`{
+        "Parent.menuindex":"ASC",
+        "uniqueid":"DESC"
+        }`
+        &leftJoin=`{
+        "Parent": {
+        "class": "modResource",
+        "on": "modResource.parent = Parent.id"
+        }
+        }`
+        &where=`{
+        "modResource.isfolder": "0"
+        }`
+        &select=`{"Parent": "Parent.menuindex"}`
+        &includeTVs=`forma,kurs_name,chasy,tsena_och,tsena_ochzaoch,tsena_zaoch,kurs_docum,uniqueid`
+        &tplOuter=`tpl.mFilter2.catalog.outer`
+        &tpl=`tpl.mSearch2.catalog.row`
+        &tplFilter.outer.default=`tpl.mFilter2.catalog.filter.outer`
+        &tplFilter.row.default=`tpl.mFilter2.catalog.filter.checkbox`
+        &filters=`
+        parent:categories,
+        onprices|forma:prices,
+        tv|vidy,
+        tv|chasy:number,
+        `
+        &suggestionsRadio=`resource|parent`
+        &tplFilter.outer.resource|parent=`tpl.mFilter2.catalog.filter.select`
+        &tplFilter.row.resource|parent=`tpl.mFilter2.filter.option`
+        &tplFilter.outer.tv|chasy=`tpl.mFilter2.catalog.filter.slider`
+        &tplFilter.row.tv|chasy=`tpl.mFilter2.filter.number`
+        ]]
+    </div>
+    </div>
+
+</section>
+<!--  End Search and Filter  -->
+
+
+<!--  Start List of Divisions -->
+<section class="page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="content-side col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!--	<h2>Подбор учебных программ по видам обучения </h2>-->
+
+                <!-- Courses Info Tabs-->
+                <div class="business-info-tabs">
+
+                    <!--Product Tabs-->
+                    <div class="prod-tabs tabs-box" id="product-tabs">
+
+                        <!--Tab Btns-->
+                        <ul class="tab-btns tab-buttons clearfix">
+                            <li data-tab="#prod-description" class="tab-btn active-btn">Программа повышения квалификации</li>
+                            <li data-tab="#prod-diversification" class="tab-btn">Программа проф. переподготовки</li>
+                            <li data-tab="#prod-expansion" class="tab-btn">Профессии рабочих и служащих</li>
+                            <li data-tab="#prod-acquisition" class="tab-btn">Ежегодные проверки знаний</li>
+                        </ul>
+
+                        <!--Tabs Content-->
+                        <div class="tabs-container tabs-content">
+
+                            <!--Tab / Active Tab-->
+                            <div class="tab active-tab" id="prod-description">
+                                <div class="content">
+                                    <div class="row clearfix">
+                                        <ul class="catslist">
+                                            <!--	[ [!getResources? &parents=`2368` &depth=`0` &limit=`100` &tpl=`tpl.sidelist` &includeTVs=`1` &includeContent=`1` ] ]	 -->
+                                        </ul>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <ul class="accordion-box mt20">
+                                                [[!getImageList? &docid=`2368` &tvname=`qual` &tpl=`tpl.svedenia`]]</ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Tab-->
+                            <div class="tab" id="prod-diversification">
+                                <div class="content">
+                                    <div class="text">
+
+                                    </div>
+                                    <div>
+                                        <ul class="accordion-box mt20">
+                                            [[!getImageList? &docid=`2368` &tvname=`prof` &tpl=`tpl.svedenia`]]
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!--Tab-->
+                            <div class="tab" id="prod-expansion">
+                                <div class="content">
+                                    <div class="text">
+
+                                    </div>
+                                    <div>
+                                        <ul class="accordion-box mt20">
+                                            [[!getImageList? &docid=`2368` &tvname=`rab` &tpl=`tpl.svedenia`]]
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Tab-->
+                            <div class="tab" id="prod-acquisition">
+                                <div class="content">
+                                    <div class="text">
+                                    </div>
+                                    <div>
+                                        <ul class="accordion-box mt20">
+                                            [[!getImageList? &docid=`2368` &tvname=`znan` &tpl=`tpl.svedenia`]]
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--End Courses Info Tabs-->
+
+                <p class="left-border">Вы также можете <a class="js-open-modal" data-modal="application-form-modal-head" hasonclick="true">заполнить форму заявки</a> и отправить её нам. <!-- на e-mail: <a href="mailto:dpoab@kurskpk.ru">dpoab@kurskpk.ru</a> --> </p>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--  End List of Divisions -->
+
+<div class="backpopup_zayavka"></div>
+[[!AjaxForm?
+&form=`tpl.AjaxForm.zayavka_obuch_catalog`
+&snippet=`FormIt`
+&hooks=`rcv3,FormItSaveForm,email,phone`
+&emailSubject=`Заявка из формы "Заявка на обучение"`
+&emailTo=`system@kurskpk.ru,[[!getResourceField? &id=`[[!city]]` &field=`emailcall` &processTV=`1`]]`
+&emailFrom=`no-reply@profi-cpr.ru`
+&emailTpl=`tpl.zayavka_obuch_catalog`
+&validate=`name_2:required,email_2:required,location_2:required,s-tel_2:required`
+&validationErrorMessage=`[[!getResourceField? &id=`[[!city]]` &field=`fa-error-message` &processTV=`1`]]`
+&successMessage=`[[!getResourceField? &id=`[[!city]]` &field=`fa-success-message` &processTV=`1`]]`
+&submitVar=`application-form-modal-zayavka_obuch`
+]]
+
+[[$footer]]
+[[$footer-script]]
